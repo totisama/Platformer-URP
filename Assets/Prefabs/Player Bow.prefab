@@ -60,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,8 +221,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  timeToMove: 0.5
   healthSlider: {fileID: 0}
+  timeToMove: 0.5
+  hitColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+  timeToColor: 0.2
+  extraHealth: {fileID: 0}
+  extraHealthSlider: {fileID: 0}
 --- !u!114 &6926003601964523768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 4281916182297548541, guid: 8b9178a6a9dc41e45969f5392e675059, type: 3}
   arrowSpawnPoint: {fileID: 3964032893740791083}
+  extraDamageValue: 0
   fireRate: 1
 --- !u!114 &239706743337690911
 MonoBehaviour:

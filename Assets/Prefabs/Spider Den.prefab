@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   hitsToDestroy: 1
   dropObjectsOnDestroy: 1
   dropObject: {fileID: 7977583531340611196, guid: faf9a0af39ba9f948be609a2b051536d, type: 3}
+  physicsDrop: 0
   randomAmount: 0
   maxAmount: 0
   amount: 1
