@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +10,7 @@ public class MeleeAttack : MonoBehaviour
     [Header("Attack")]
     [SerializeField] private float attackDistance = 1f;
     [SerializeField] internal float attackDamage = 15f;
+    [SerializeField] private bool multipleAttackAnimations;
    
     [Header("Behavior")]
     [SerializeField] private float seekDistance = 10f;
@@ -30,7 +30,8 @@ public class MeleeAttack : MonoBehaviour
     {
         Idle,
         Run,
-        Attack
+        Attack,
+        Attack2
     };
 
     private enum EnemyStates
@@ -53,12 +54,13 @@ public class MeleeAttack : MonoBehaviour
 
     private void Update()
     {
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        
         if (attacking)
         {
             return;
         }
 
-        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
         if (distanceToPlayer <= attackDistance)
         {
@@ -78,8 +80,18 @@ public class MeleeAttack : MonoBehaviour
 
     private void Attack()
     {
+        if (multipleAttackAnimations)
+        {
+            int randomAnimation = Random.Range(0, 2);
+
+            animator.SetInteger("currentAnimation", randomAnimation == 0 ? (int)Animations.Attack : (int)Animations.Attack2);
+        }
+        else
+        {
+            animator.SetInteger("currentAnimation", (int)Animations.Attack);
+        }
+
         attacking = true;
-        animator.SetInteger("currentAnimation", (int)Animations.Attack);
         rb.velocity = Vector2.zero;
     }
 
