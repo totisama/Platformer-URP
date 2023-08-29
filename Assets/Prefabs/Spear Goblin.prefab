@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd11a1861826d5a469f6bd681e19ee1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 50
   healthSlider: {fileID: 6602694609190045570}
   canvas: {fileID: 8844826738683446959}
   hitColor: {r: 1, g: 0.3, b: 0.3, a: 1}
