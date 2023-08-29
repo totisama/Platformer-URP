@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AxeGoblin : MonoBehaviour
+public class MeleeAttack : MonoBehaviour
 {
     [Header("General")]
     [SerializeField] private float collisionDamage = 10f;

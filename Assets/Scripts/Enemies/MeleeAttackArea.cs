@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AxeGoblinAttackArea : MonoBehaviour
+public class MeleeAttackArea : MonoBehaviour
 {
-    [SerializeField] private AxeGoblin axeGoblin;
+    [SerializeField] private MeleeAttack meleeAttack;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +14,7 @@ public class AxeGoblinAttackArea : MonoBehaviour
 
             if (iDamageable != null)
             {
-                iDamageable.TakeDamage(axeGoblin.attackDamage, transform.position);
+                iDamageable.TakeDamage(meleeAttack.attackDamage, transform.position);
             }
         }
 
