@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771b51d8cd2af1242a359c8527aa5bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axeGoblin: {fileID: 3765422809958179517}
+  meleeAttack: {fileID: 0}
 --- !u!1 &7294735661159029148
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.03802228}
+  m_Offset: {x: -0.1928668, y: -0.03802228}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -225,7 +225,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.63, y: 1.5123951}
+  m_Size: {x: 1.2442665, y: 1.5123951}
   m_EdgeRadius: 0
 --- !u!50 &6764007247809641625
 Rigidbody2D:
