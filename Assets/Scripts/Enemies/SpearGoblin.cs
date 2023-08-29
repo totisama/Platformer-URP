@@ -41,11 +41,11 @@ public class SpearGoblin: MonoBehaviour
         animator = GetComponent<Animator>();
         waypointsFollower = GetComponent<WaypointsFollower>();
         bulletBehavior = spear.GetComponent<BulletBehavior>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     private void Start()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         animator.SetInteger("currentAnimation", (int)Animations.Run);
     }
 
