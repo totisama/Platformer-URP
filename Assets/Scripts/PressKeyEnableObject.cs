@@ -7,13 +7,15 @@ using UnityEngine;
 public class PressKeyEnableObject: MonoBehaviour
 {
     [SerializeField] GameObject itemToShow;
-    [SerializeField] PlayerController player;
+    
+    private PlayerController player;
     private bool inRange;
     private bool opened;
 
     private void Start()
     {
         itemToShow.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -34,18 +36,14 @@ public class PressKeyEnableObject: MonoBehaviour
     private void Open()
     {
         itemToShow.SetActive(true);
-        player.canMove = false;
+        player.LockPlayer();
         opened = true;
-
-        //Stop the player velocity 
-        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-        rb.velocity = Vector3.zero;
     }
 
     public void Close()
     {
         itemToShow.SetActive(false);
-        player.canMove = true;
+        player.UnlockPlayer();
         opened = false;
     }
 

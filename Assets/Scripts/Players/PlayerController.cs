@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
         Animations currentAnimation;
 
         //Running conditions
-        if (horizontalMovement < 0f || horizontalMovement > 0f)
+        if ((horizontalMovement < 0f || horizontalMovement > 0f) && canMove)
         {
             FlipPlayer();
             currentAnimation = Animations.Run;
@@ -205,7 +205,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("No item to use");
             return;
         }
-        Debug.Log(item.name);
 
         if (item.GetItemType() == ActionType.health)
         {
@@ -221,6 +220,17 @@ public class PlayerController : MonoBehaviour
             playerAttack.UsePotion(item.GetItemType(), item.GetItemDuration());
             Destroy(item.gameObject);
         }
+    }
+
+    public void LockPlayer()
+    {
+        canMove = false;
+        rigidBody.velocity = Vector3.zero;
+    }
+    
+    public void UnlockPlayer()
+    {
+        canMove = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

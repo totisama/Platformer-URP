@@ -46,3 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsAmount: {fileID: 0}
   inventoryCoinsAmount: {fileID: 0}
+  cameraController: {fileID: 0}
+  bowPlayerPrefab: {fileID: 2632919398140164916, guid: 2123cb3949903a944afe5edffe84f20b, type: 3}
+  extraHealth: {fileID: 0}
+  extraHealthSlider: {fileID: 0}
+  healthSlider: {fileID: 0}

@@ -241,7 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 4281916182297548541, guid: 8b9178a6a9dc41e45969f5392e675059, type: 3}
   arrowSpawnPoint: {fileID: 3964032893740791083}
-  extraDamageValue: 0
+  extraDamageValue: 10
   fireRate: 1
 --- !u!114 &239706743337690911
 MonoBehaviour:

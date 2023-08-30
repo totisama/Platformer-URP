@@ -14,4 +14,9 @@ public class CameraController : MonoBehaviour
 
         transform.position = new Vector3(position.x + xOffset, position.y + yOffset, transform.position.z);
     }
+
+    public void ChangePlayer(Transform newPlayer)
+    {
+        playerTransform = newPlayer;
+    }
 }

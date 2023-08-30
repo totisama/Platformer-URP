@@ -137,6 +137,16 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         return true;
     }
 
+    public void SetHealthObjects(GameObject newExtraHealth, Slider newHealthSlider, Slider newExtraHealthSlider)
+    {
+        extraHealth = newExtraHealth;
+
+        newHealthSlider.value = maxHealth;
+        healthSlider = newHealthSlider;
+
+        extraHealthSlider = newExtraHealthSlider;
+    }
+
     private IEnumerator ImmobilizePlayer()
     {
         playerController.canMove = false;
