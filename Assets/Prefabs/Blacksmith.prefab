@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 4346541837804689485}
   - component: {fileID: 8904141459751644747}
   - component: {fileID: 3193171174136015703}
+  - component: {fileID: 5802567260987728973}
   - component: {fileID: 1408041161238127662}
+  - component: {fileID: 5754613823278595614}
   m_Layer: 0
   m_Name: Blacksmith
   m_TagString: Untagged
@@ -77,7 +79,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bb925e90a3c2e2a45a345be882fbb43f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.39, y: 1.96}
@@ -107,6 +109,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &5802567260987728973
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254028034142993523}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.46245623, y: 1.723701}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.39, y: 1.96}
+    newSize: {x: 2.39, y: 1.96}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3529768, y: 5.407402}
+  m_EdgeRadius: 0
 --- !u!114 &1408041161238127662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,3 +168,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleTime: 2
   actionTime: 6
+--- !u!114 &5754613823278595614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254028034142993523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcb7a976afe523469499c307a789231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogPanel: {fileID: 0}
+  dialogText: {fileID: 0}
+  dialogs:
+  - Hello! Are you going to the black forest alone and unaremed?!
+  - Well, you are lucky I have a spare weapon I can give you.
+  - Take this bow with you to defeat the different enemies you will encounter.
+  - Good luck, hope you find what you are looking for.
+  typingSpeed: 0.08
+  nextDialog: 1
