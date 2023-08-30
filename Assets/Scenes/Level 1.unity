@@ -1012,20 +1012,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1636350933895718478, guid: 69ee5938b7885294e8452646d6b717c4, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2099239631}
-    - target: {fileID: 1636350933895718478, guid: 69ee5938b7885294e8452646d6b717c4, type: 3}
       propertyPath: itemToShow
       value: 
       objectReference: {fileID: 104247401}
     - target: {fileID: 7878992595347144122, guid: 69ee5938b7885294e8452646d6b717c4, type: 3}
       propertyPath: m_Name
       value: Merchant
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878992595347144122, guid: 69ee5938b7885294e8452646d6b717c4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8588054892339689678, guid: 69ee5938b7885294e8452646d6b717c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6762,17 +6754,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1474946674331257477, guid: bbee5f71e12f0aa47877201a85c8642d, type: 3}
   m_PrefabInstance: {fileID: 2564150654046394394}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2099239631 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1475502664617079630, guid: bbee5f71e12f0aa47877201a85c8642d, type: 3}
-  m_PrefabInstance: {fileID: 2564150654046394394}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9340390d61ab8b642827f7f35cfdd879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &374114086524034584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6923,10 +6904,6 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1665873525}
-    - target: {fileID: 6187828568340524973, guid: 7007a6ac807f8094f8d883321ffd6eb7, type: 3}
-      propertyPath: bowPlayerPrefab
-      value: 
-      objectReference: {fileID: 2632919398140164916, guid: 2123cb3949903a944afe5edffe84f20b, type: 3}
     - target: {fileID: 6187828568340524973, guid: 7007a6ac807f8094f8d883321ffd6eb7, type: 3}
       propertyPath: cameraController
       value: 
