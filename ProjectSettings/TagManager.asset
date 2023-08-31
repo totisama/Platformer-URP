@@ -46,6 +46,9 @@ TagManager:
   - name: Background
     uniqueID: 4046916891
     locked: 0
+  - name: Decorations
+    uniqueID: 2270330943
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
