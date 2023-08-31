@@ -2116,7 +2116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  knockBackMultiplier: {x: 1, y: 1}
+  knockBackMultiplier: {x: 1, y: 2}
 --- !u!1 &1043950518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4450,7 +4450,7 @@ CompositeCollider2D:
   m_GameObject: {fileID: 1464409248}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fb86f59ed6b144743bdc7ae00d54f0d1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7674,7 +7674,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2035573834}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fb86f59ed6b144743bdc7ae00d54f0d1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
