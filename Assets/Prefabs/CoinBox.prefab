@@ -170,5 +170,6 @@ MonoBehaviour:
   dropObject: {fileID: 5502722581174371369, guid: 3761f914326365a42915cb4a8726c873, type: 3}
   physicsDrop: 1
   randomAmount: 1
-  maxAmount: 6
+  minAmount: 2
+  maxAmount: 10
   amount: 0

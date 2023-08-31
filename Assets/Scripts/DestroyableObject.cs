@@ -11,6 +11,7 @@ public class DestroyableObject : MonoBehaviour, IDamageable
     [SerializeField] private bool physicsDrop;
     [Header("Random")]
     [SerializeField] private bool randomAmount;
+    [SerializeField] private int minAmount= 0;
     [Tooltip("Not included")]
     [SerializeField] private int maxAmount = 0;
     [Header("Controlled")]
@@ -48,7 +49,7 @@ public class DestroyableObject : MonoBehaviour, IDamageable
         int objectsAmount = amount;
 
         if (random) {
-            objectsAmount = Random.Range(0, maxAmount);
+            objectsAmount = Random.Range(minAmount, maxAmount);
         }
 
         if (physicsDrop)
