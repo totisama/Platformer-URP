@@ -77,4 +77,8 @@ public class DestroyableObject : MonoBehaviour, IDamageable
     {
         Destroy(gameObject);
     }
+
+    public void TakeDamage(float damage, Vector2 damageDirection, Vector2 multiplier)
+    {
+    }
 }

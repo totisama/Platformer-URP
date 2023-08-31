@@ -62,4 +62,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(timeToColor);
         sr.color = defaultColor;
     }
+
+    public void TakeDamage(float damage, Vector2 damageDirection, Vector2 multiplier)
+    {
+    }
 }

@@ -13,7 +13,7 @@ public class TakeKnockBack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void KnockBack(Vector2 damageDirection)
+    public void KnockBack(Vector2 damageDirection, Vector2 multiplier)
     {
         Vector2 directionForce = ((Vector2)transform.position - damageDirection).normalized;
 
@@ -32,6 +32,6 @@ public class TakeKnockBack : MonoBehaviour
             }
         }
 
-        rb.velocity = new Vector2(knockBackForce.x * directionForce.x, knockBackForce.y);
+        rb.velocity = new Vector2(knockBackForce.x * directionForce.x * multiplier.x, knockBackForce.y * multiplier.y);
     }
 }

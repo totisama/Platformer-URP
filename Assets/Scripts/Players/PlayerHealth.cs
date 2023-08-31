@@ -58,32 +58,64 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         extraHealthSlider.value = 0;
     }
 
-    public void TakeDamage(float damage, Vector2 damageDirection)
+    private void ManageExtraHealth(float temporalHealth)
+    {
+        float currentHealth = temporalHealth - maxHealth;
+
+        if (currentHealth > 0)
+        {
+            extraHealthSlider.value = currentHealth;
+        }
+        else
+        {
+            extraHealthSlider.value = 0;
+            extraHealth.SetActive(false);
+            extraHealthActive = false;
+            healthSlider.value = temporalHealth;
+        }
+    }
+
+    public void TakeDamage(float damage, Vector2 damageDirection, Vector2 multiplier)
     {
         float temporalHealth = Health - damage;
 
         if (extraHealthActive && Health > maxHealth)
         {
-            float currentHealth = temporalHealth - maxHealth;
-
-            if (currentHealth > 0)
-            {
-                extraHealthSlider.value = currentHealth;
-            }
-            else
-            {
-                extraHealthSlider.value = 0;
-                extraHealth.SetActive(false);
-                extraHealthActive = false;
-                healthSlider.value = temporalHealth;
-            }
+            ManageExtraHealth(temporalHealth);
         }
         else
         {
             healthSlider.value = temporalHealth;
         }
 
-        takeKnockBack.KnockBack(damageDirection);
+        takeKnockBack.KnockBack(damageDirection, multiplier);
+        Health = temporalHealth;
+
+        if (Health <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            StartCoroutine(SwitchColor());
+            StartCoroutine(ImmobilizePlayer());
+        }
+    }
+
+    public void TakeDamage(float damage, Vector2 damageDirection)
+    {
+        float temporalHealth = Health - damage;
+
+        if (extraHealthActive && Health > maxHealth)
+        {
+            ManageExtraHealth(temporalHealth);
+        }
+        else
+        {
+            healthSlider.value = temporalHealth;
+        }
+
+        takeKnockBack.KnockBack(damageDirection, new Vector2(0.0f, 0.0f));
         Health = temporalHealth;
 
         if (Health <= 0)
@@ -156,7 +188,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void RespawnPlayer()
     {
-        InitializeHealth();
+        //InitializeHealth();
         GameManager.Instance.RespawnPlayer(playerSpawn.spawnPosition);
     }
 
