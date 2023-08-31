@@ -186,6 +186,6 @@ MonoBehaviour:
   - Hello! Are you going to the black forest alone and unaremed?!
   - Well, you are lucky I have a spare weapon I can give you.
   - Take this bow with you to defeat the different enemies you will encounter.
-  - Good luck, hope you find what you are looking for.
+  - Good luck! Hope you find what you are looking for.
   typingSpeed: 0.08
   nextDialog: 1

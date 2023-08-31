@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private Animator animator;
     private PlayerController playerController;
+    private PlayerSpawn playerSpawn;
     private TakeKnockBack takeKnockBack;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
@@ -37,12 +38,18 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         animator = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
+        playerSpawn = GetComponent<PlayerSpawn>();
         takeKnockBack = GetComponent<TakeKnockBack>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
+    {
+        InitializeHealth();
+    }
+
+    private void InitializeHealth()
     {
         health = maxHealth;
         healthSlider.value = maxHealth;
@@ -145,6 +152,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         healthSlider = newHealthSlider;
 
         extraHealthSlider = newExtraHealthSlider;
+    }
+
+    private void RespawnPlayer()
+    {
+        InitializeHealth();
+        GameManager.Instance.RespawnPlayer(playerSpawn.spawnPosition);
     }
 
     private IEnumerator ImmobilizePlayer()

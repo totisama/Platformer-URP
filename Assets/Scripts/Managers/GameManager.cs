@@ -53,8 +53,20 @@ public class GameManager : MonoBehaviour
         PlayerHealth playerHealth = bowPlayer.GetComponent<PlayerHealth>();
         playerHealth.SetHealthObjects(extraHealth, healthSlider, extraHealthSlider);
 
+        Destroy(currentPlayer);
+        currentPlayer = bowPlayer;
+    }
+
+    public void RespawnPlayer(Vector3 position)
+    {
+        GameObject bowPlayer = Instantiate(bowPlayerPrefab, position, Quaternion.identity);
+        cameraController.ChangePlayer(bowPlayer.transform);
+
+        PlayerHealth playerHealth = bowPlayer.GetComponent<PlayerHealth>();
+        playerHealth.SetHealthObjects(extraHealth, healthSlider, extraHealthSlider);
 
         Destroy(currentPlayer);
+        currentPlayer = bowPlayer;
     }
 
     public void IncreaseCoins(int amount)
