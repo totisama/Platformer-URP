@@ -10,6 +10,7 @@ TagManager:
   - Collectable
   - Terrain
   - SpawnPoint
+  - UnarmedPlayer
   layers:
   - Default
   - TransparentFX

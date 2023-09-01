@@ -8,14 +8,17 @@ public class PressKeyEnableObject: MonoBehaviour
 {
     [SerializeField] GameObject itemToShow;
     
-    private PlayerController player;
+    private PlayerController playerController;
+    private PlayerAttack playerAttack;
     private bool inRange;
     private bool opened;
 
     private void Start()
     {
         itemToShow.SetActive(false);
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+        playerAttack = player.GetComponent<PlayerAttack>();
     }
 
     private void Update()
@@ -36,14 +39,16 @@ public class PressKeyEnableObject: MonoBehaviour
     private void Open()
     {
         itemToShow.SetActive(true);
-        player.LockPlayer();
+        playerController.LockPlayer();
+        playerAttack.canAttack = false;
         opened = true;
     }
 
     public void Close()
     {
         itemToShow.SetActive(false);
-        player.UnlockPlayer();
+        playerController.UnlockPlayer();
+        playerAttack.canAttack = true;
         opened = false;
     }
 

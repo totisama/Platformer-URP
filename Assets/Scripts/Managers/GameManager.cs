@@ -13,14 +13,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CameraController cameraController;
 
     [Header("Player Spawn")]
-    [SerializeField] private GameObject bowPlayerPrefab;
+    [SerializeField] private GameObject bowPlayer;
     [SerializeField] private GameObject extraHealth;
     [SerializeField] private Slider extraHealthSlider;
     [SerializeField] private Slider healthSlider;
 
     private GameObject currentPlayer;
  
-    private int coins;
+    private int coins = 100;
 
     public int Coins { get { return coins; } private set { coins = value; } }
 
@@ -41,17 +41,18 @@ public class GameManager : MonoBehaviour
     {
         coinsAmount.SetText(Coins.ToString());
         inventoryCoinsAmount.SetText(Coins.ToString());
-        currentPlayer = GameObject.FindGameObjectWithTag("Player");
+        currentPlayer = GameObject.FindGameObjectWithTag("UnarmedPlayer");
     }
 
     public void ChangePlayerPrefab()
     {
-        Vector3 currentPosition = currentPlayer.transform.position;
-        GameObject bowPlayer = Instantiate(bowPlayerPrefab, currentPosition, Quaternion.identity);
-        cameraController.ChangePlayer(bowPlayer.transform);
+        bowPlayer.GetComponent<SpriteRenderer>().enabled = true;
+        bowPlayer.GetComponent<PlayerController>().UnlockPlayer();
+        bowPlayer.GetComponent<PlayerAttack>().canAttack = true;
 
-        PlayerHealth playerHealth = bowPlayer.GetComponent<PlayerHealth>();
-        playerHealth.SetHealthObjects(extraHealth, healthSlider, extraHealthSlider);
+        bowPlayer.transform.position = currentPlayer.transform.position;
+        bowPlayer.SetActive(true);
+        cameraController.ChangePlayer(bowPlayer.transform);
 
         Destroy(currentPlayer);
         currentPlayer = bowPlayer;
@@ -59,14 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer(Vector3 position)
     {
-        GameObject bowPlayer = Instantiate(bowPlayerPrefab, position, Quaternion.identity);
-        cameraController.ChangePlayer(bowPlayer.transform);
-
-        PlayerHealth playerHealth = bowPlayer.GetComponent<PlayerHealth>();
-        playerHealth.SetHealthObjects(extraHealth, healthSlider, extraHealthSlider);
-
-        Destroy(currentPlayer);
-        currentPlayer = bowPlayer;
+        currentPlayer.transform.position = position;
     }
 
     public void IncreaseCoins(int amount)

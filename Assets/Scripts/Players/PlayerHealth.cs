@@ -115,7 +115,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             healthSlider.value = temporalHealth;
         }
 
-        takeKnockBack.KnockBack(damageDirection, new Vector2(0.0f, 0.0f));
+        takeKnockBack.KnockBack(damageDirection, new Vector2(1.0f, 1.0f));
         Health = temporalHealth;
 
         if (Health <= 0)
@@ -188,7 +188,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void RespawnPlayer()
     {
-        //InitializeHealth();
+        rb.velocity = Vector2.zero;
+        InitializeHealth();
+        playerController.UnlockPlayer();
         GameManager.Instance.RespawnPlayer(playerSpawn.spawnPosition);
     }
 

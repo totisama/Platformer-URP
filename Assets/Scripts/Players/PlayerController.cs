@@ -231,6 +231,7 @@ public class PlayerController : MonoBehaviour
     public void UnlockPlayer()
     {
         canMove = true;
+        rigidBody.simulated = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

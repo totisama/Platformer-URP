@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform arrowSpawnPoint;
     [SerializeField] private int extraDamageValue;
     public float fireRate = 1f;
+    public bool canAttack = false;
     private float initialfireRate = 1f;
 
     private PlayerController controller;
@@ -27,6 +28,11 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
+        if (!canAttack)
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0) && Time.time > nextFire && !controller.isClimbing)
         {
             nextFire = Time.time + fireRate;

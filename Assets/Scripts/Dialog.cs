@@ -11,6 +11,7 @@ public class Dialog : MonoBehaviour
     [Header("Typing")]
     [SerializeField] private float typingSpeed;
     [SerializeField] private float nextDialog;
+    [SerializeField] private bool skipDialog;
 
     private int currentDialog;
     private bool opened;
@@ -19,7 +20,7 @@ public class Dialog : MonoBehaviour
     private void Start()
     {
         dialogPanel.SetActive(false);
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player = GameObject.FindGameObjectWithTag("UnarmedPlayer").GetComponent<PlayerController>();
     }
 
     private void OpenDialog()
@@ -66,9 +67,16 @@ public class Dialog : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !opened)
+        if (!opened && collision.CompareTag("UnarmedPlayer"))
         {
-            OpenDialog();
+            if (skipDialog)
+            {
+                GameManager.Instance.ChangePlayerPrefab();
+            }
+            else
+            {
+                OpenDialog(); 
+            }
         }
     }
 }
