@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Slider healthSlider;
 
     private GameObject currentPlayer;
- 
-    private int coins = 100;
+
+    private int coins;
 
     public int Coins { get { return coins; } private set { coins = value; } }
 
