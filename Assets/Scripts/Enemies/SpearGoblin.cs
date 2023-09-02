@@ -62,7 +62,7 @@ public class SpearGoblin: MonoBehaviour
         if (distanceToPlayer < attackDistance && canAttack)
         {
             StartCoroutine(AttackCooldown());
-            waypointsFollower.canMove = false;
+            waypointsFollower.CanMove(false);
             waypointsFollower.FlipScale(playerTransform.position);
             animator.SetInteger("currentAnimation", (int)Animations.Attack);
         }
@@ -73,7 +73,7 @@ public class SpearGoblin: MonoBehaviour
         float angle = GetShotAngle(transform.position, playerTransform.position);
 
         Instantiate(spear, spearSpawnPoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
-        waypointsFollower.canMove = true;
+        waypointsFollower.CanMove(true);
 
         animator.SetInteger("currentAnimation", (int)Animations.Run);
     }

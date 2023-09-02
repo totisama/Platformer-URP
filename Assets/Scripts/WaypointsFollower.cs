@@ -12,8 +12,14 @@ public class WaypointsFollower : MonoBehaviour
     [SerializeField] private RectTransform rectTransform;
 
     private int currentWaypointIndex = 0;
+    private Vector3 currentTarget;
+    Rigidbody2D rb;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
         if(!canMove)
@@ -30,10 +36,37 @@ public class WaypointsFollower : MonoBehaviour
             }
         }
 
-        Vector3 target = waypoints[currentWaypointIndex].position;
+        currentTarget = waypoints[currentWaypointIndex].position;
 
-        transform.position = Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-        FlipScale(target);
+        FlipScale(currentTarget);
+    }
+
+    private void FixedUpdate()
+    {
+        if (!canMove)
+        {
+            return;
+        }
+
+        Move();
+    }
+
+    private void Move()
+    {
+        Vector2 direction = (transform.position - currentTarget).normalized;
+
+        rb.velocity = new Vector2(-direction.x * moveSpeed, rb.velocity.y);
+    }
+
+    internal void CanMove(bool ableToMove)
+    {
+        canMove = ableToMove;
+
+        if (!ableToMove)
+        {
+            rb.velocity = Vector3.zero;
+        }
+
     }
 
     public void FlipScale(Vector3 target)
