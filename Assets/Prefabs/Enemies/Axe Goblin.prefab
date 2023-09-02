@@ -292,7 +292,7 @@ MonoBehaviour:
   attackDamage: 15
   multipleAttackAnimations: 0
   seekDistance: 10
-  moveSpeed: 9
+  moveSpeed: 7.5
   rectTransform: {fileID: 2238152648570037782}
 --- !u!114 &5499290427320673883
 MonoBehaviour:
