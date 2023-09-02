@@ -85,6 +85,12 @@ public class SpearGoblin: MonoBehaviour
         float velocity = bulletBehavior.PhysicsBulletSpeed;
 
         float offsetHeight = endLocation.y - startLocation.y;
+
+        if (offsetHeight > maxHeight)
+        {
+            offsetHeight = maxHeight;
+        }
+
         float verticalSpeed = Mathf.Sqrt(2 * gravity * maxHeight);
         float travelTime = Mathf.Sqrt(2 * (maxHeight - offsetHeight) / gravity) + Mathf.Sqrt(2 * maxHeight / gravity);
         float horizontalSpeed = (startLocation.x - endLocation.x) / travelTime;
