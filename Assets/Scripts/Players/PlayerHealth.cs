@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private float timeToMove = 1f;
     [SerializeField] private Color hitColor = new Color(1f, 0.30f, 0.30f);
     [SerializeField] private float timeToColor = 0.2f;
+    [SerializeField] private float timeToBeHittedAgain = 0.5f;
     [Header("Extra health potion")]
     [SerializeField] private GameObject extraHealth;
     [SerializeField] private Slider extraHealthSlider;
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private float health;
     private bool extraHealthActive;
+    private bool canBeHit = true;
     private Color defaultColor = new Color(1f, 1f, 1f);
 
     private Animator animator;
@@ -77,6 +79,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage, Vector2 damageDirection, Vector2 multiplier)
     {
+        if (!canBeHit)
+        {
+            return;
+        }
+
         float temporalHealth = Health - damage;
 
         if (extraHealthActive && Health > maxHealth)
@@ -99,11 +106,17 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         {
             StartCoroutine(SwitchColor());
             StartCoroutine(ImmobilizePlayer());
+            StartCoroutine(HitCooldown());
         }
     }
 
     public void TakeDamage(float damage, Vector2 damageDirection)
     {
+        if (!canBeHit)
+        {
+            return;
+        }
+
         float temporalHealth = Health - damage;
 
         if (extraHealthActive && Health > maxHealth)
@@ -126,6 +139,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         {
             StartCoroutine(SwitchColor());
             StartCoroutine(ImmobilizePlayer());
+            StartCoroutine(HitCooldown());
         }
     }
 
@@ -206,5 +220,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         sr.color = hitColor;
         yield return new WaitForSeconds(timeToColor);
         sr.color = defaultColor;
+    }
+    
+    private IEnumerator HitCooldown()
+    {
+        canBeHit = false;
+        yield return new WaitForSeconds(timeToBeHittedAgain);
+        canBeHit = true;
     }
 }
