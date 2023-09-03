@@ -13,7 +13,6 @@ public class SpearGoblin: MonoBehaviour
     [Header("Attack")]
     [SerializeField] private GameObject spear;
     [SerializeField] private Transform spearSpawnPoint;
-    [SerializeField] private Vector3 rotation;
     [SerializeField] private float timeToAttack = 2f;
 
     private bool canAttack = true;
