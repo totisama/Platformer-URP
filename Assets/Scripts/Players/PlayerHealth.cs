@@ -200,7 +200,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         extraHealthSlider = newExtraHealthSlider;
     }
 
-    private void RespawnPlayer()
+    public void RespawnPlayer()
     {
         rb.velocity = Vector2.zero;
         InitializeHealth();
