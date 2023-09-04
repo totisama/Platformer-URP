@@ -44,8 +44,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         if (health <= 0)
         {
-            rb.velocity = Vector2.zero;
-            rb.simulated = false;
+            if (rb)
+            {
+                rb.velocity = Vector2.zero;
+                rb.simulated = false;
+            }
             canvas.enabled = false;
             animator.SetTrigger("death");
         }
