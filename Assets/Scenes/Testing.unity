@@ -5193,7 +5193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422247275344107205, guid: 2123cb3949903a944afe5edffe84f20b, type: 3}
       propertyPath: jumpableGround.m_Bits
-      value: 64
+      value: 4160
       objectReference: {fileID: 0}
     - target: {fileID: 2632919398140164916, guid: 2123cb3949903a944afe5edffe84f20b, type: 3}
       propertyPath: m_Name

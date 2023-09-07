@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 7f;
+    public bool onMovingPlatform;
     public bool canMove = true;
 
     [Header("Jump")]
@@ -117,12 +118,23 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (!isAttacking || (isAttacking && !IsGrounded()))
+        if (onMovingPlatform)
+        {
+            float xVelocity = rigidBody.velocity.x;
+
+            if (horizontalMovement != 0f)
+            {
+                xVelocity = horizontalMovement * moveSpeed;
+            }
+
+            rigidBody.velocity = new Vector2(xVelocity, rigidBody.velocity.y);
+        }
+        else if (!isAttacking|| (isAttacking && !IsGrounded()))
         {
             rigidBody.velocity = new Vector2(horizontalMovement * moveSpeed, rigidBody.velocity.y);
         }
         else if ((horizontalMovement < 0f || horizontalMovement > 0f) && isAttacking)
-        { 
+        {
             // Set x velocity to 0 when the player is moving and attacking
             rigidBody.velocity = new Vector2(0f, rigidBody.velocity.y);
         }
@@ -155,10 +167,9 @@ public class PlayerController : MonoBehaviour
         {
             currentAnimation = Animations.Jump;
         }
-        else if (rigidBody.velocity.y < -0.1f)
+        else if (rigidBody.velocity.y < -0.1f && !onMovingPlatform)
         {
             currentAnimation = Animations.Fall;
-
         }
 
         //Attack conditions
