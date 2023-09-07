@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
         coinsAmount.SetText(Coins.ToString());
         inventoryCoinsAmount.SetText(Coins.ToString());
         currentPlayer = GameObject.FindGameObjectWithTag("UnarmedPlayer");
+
+        if (!currentPlayer)
+        {
+            currentPlayer = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     public void ChangePlayerPrefab()
@@ -60,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer(Vector3 position)
     {
-        currentPlayer.transform.position = position;
+        currentPlayer.GetComponent<PlayerController>().Respawn(position);
     }
 
     public void IncreaseCoins(int amount)

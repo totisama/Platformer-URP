@@ -234,6 +234,15 @@ public class PlayerController : MonoBehaviour
         rigidBody.simulated = true;
     }
 
+    public void Respawn(Vector3 position)
+    {
+        canMove = true;
+        isAttacking = false;
+        rigidBody.velocity = Vector2.zero;
+        rigidBody.simulated = true;
+        transform.position = position;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ladder"))
