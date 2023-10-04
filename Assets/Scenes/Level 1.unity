@@ -6131,6 +6131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1967297944}
     m_Modifications:
+    - target: {fileID: 3940587854950637620, guid: 829d26433a387bb4ea236a5fb12245db, type: 3}
+      propertyPath: minAmount
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6528659908243538326, guid: 829d26433a387bb4ea236a5fb12245db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 63.113
@@ -14904,12 +14908,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1967297944}
     m_Modifications:
     - target: {fileID: 130812069231777896, guid: 8609132799446c2409fd0807004c389c, type: 3}
+      propertyPath: amount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 130812069231777896, guid: 8609132799446c2409fd0807004c389c, type: 3}
       propertyPath: maxAmount
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 130812069231777896, guid: 8609132799446c2409fd0807004c389c, type: 3}
       propertyPath: minAmount
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 130812069231777896, guid: 8609132799446c2409fd0807004c389c, type: 3}
+      propertyPath: randomAmount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 708552608033201968, guid: 8609132799446c2409fd0807004c389c, type: 3}
       propertyPath: m_SortingOrder
@@ -16921,6 +16933,10 @@ PrefabInstance:
     - target: {fileID: 5754613823278595614, guid: 1d54ee2d61c244d428483a6cbc9285a7, type: 3}
       propertyPath: skipDialog
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754613823278595614, guid: 1d54ee2d61c244d428483a6cbc9285a7, type: 3}
+      propertyPath: tagToCheck
+      value: UnarmedPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 5754613823278595614, guid: 1d54ee2d61c244d428483a6cbc9285a7, type: 3}
       propertyPath: dialogPanel
