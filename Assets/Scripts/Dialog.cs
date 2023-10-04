@@ -8,6 +8,7 @@ public class Dialog : MonoBehaviour
     [SerializeField] private GameObject dialogPanel;
     [SerializeField] private TMP_Text dialogText;
     [SerializeField] private string[] dialogs;
+    [SerializeField] private string tagToSearch;
     [Header("Typing")]
     [SerializeField] private float typingSpeed;
     [SerializeField] private float nextDialog;
@@ -20,7 +21,7 @@ public class Dialog : MonoBehaviour
     private void Start()
     {
         dialogPanel.SetActive(false);
-        player = GameObject.FindGameObjectWithTag("UnarmedPlayer").GetComponent<PlayerController>();
+        player = GameObject.FindGameObjectWithTag(tagToSearch).GetComponent<PlayerController>();
     }
 
     private void OpenDialog()
@@ -67,7 +68,7 @@ public class Dialog : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!opened && collision.CompareTag("UnarmedPlayer"))
+        if (!opened && collision.CompareTag(tagToSearch))
         {
             if (skipDialog)
             {
