@@ -12,6 +12,7 @@ public class PressKeyEnableObject: MonoBehaviour
     private PlayerAttack playerAttack;
     private bool inRange;
     private bool opened;
+    internal bool ableToOpen = true;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class PressKeyEnableObject: MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.E) && inRange)
+        if(Input.GetKeyUp(KeyCode.E) && inRange && ableToOpen)
         {
             if (!opened)
             {
