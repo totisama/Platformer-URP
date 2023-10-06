@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dialog : MonoBehaviour
 {
     [SerializeField] private GameObject dialogPanel;
     [SerializeField] private TMP_Text dialogText;
+    [SerializeField] private Sprite dialogImage;
+    [SerializeField] private Image imageObject;
     [SerializeField] private string[] dialogs;
     [SerializeField] private string tagToSearch;
+    [SerializeField] private bool startDialog;
     [Header("Typing")]
     [SerializeField] private float typingSpeed;
     [SerializeField] private float nextDialog;
@@ -17,11 +21,13 @@ public class Dialog : MonoBehaviour
     private int currentDialog;
     private bool opened;
     private PlayerController player;
+    private PressKeyEnableObject enableObject;
 
     private void Start()
     {
         dialogPanel.SetActive(false);
         player = GameObject.FindGameObjectWithTag(tagToSearch).GetComponent<PlayerController>();
+        enableObject = GetComponent<PressKeyEnableObject>();
     }
 
     private void OpenDialog()
@@ -29,7 +35,12 @@ public class Dialog : MonoBehaviour
         opened = true;
         player.LockPlayer();
         dialogPanel.SetActive(true);
+        imageObject.sprite = dialogImage;
         StartCoroutine(Typing());
+        if (enableObject)
+        {
+            enableObject.ableToOpen = false;
+        }
     }
 
     private void ResetDialog()
@@ -38,7 +49,16 @@ public class Dialog : MonoBehaviour
         currentDialog = 0;
         dialogPanel.SetActive(false);
         player.UnlockPlayer();
-        GameManager.Instance.ChangePlayerPrefab();
+
+        if (startDialog)
+        {
+            GameManager.Instance.ChangePlayerPrefab();        
+        }
+
+        if (enableObject)
+        {
+            enableObject.ableToOpen = true;
+        }
     }
 
     private void NextDialog()
