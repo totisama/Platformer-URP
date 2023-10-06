@@ -17,7 +17,10 @@ public class Finish : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        finishPanel.SetActive(true);
-        playerController.LockPlayer();
+        if(collision.CompareTag("Player"))
+        {
+            finishPanel.SetActive(true);
+            playerController.LockPlayer();
+        }
     }
 }
